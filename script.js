@@ -44,41 +44,87 @@ const restaurant = {
       close: 24,
     },
   },
+  orderDelivery: function (time, starterIndex, mainIndex, address) {
+    console.log(`Your order receiverd ${time}, location ${address}, `);
+  },
 };
 
 // Normal accessing array
 
-const arr = [1, 2, 3];
-const x = arr[0];
-const y = arr[1];
-const z = arr[2];
+// const arr = [1, 2, 3];
+// const x = arr[0];
+// const y = arr[1];
+// const z = arr[2];
 
-// Using array destructure
+// // Using array destructure
 
-const [a, b, c] = arr;
-console.log(a, b, c);
+// const [a, b, c] = arr;
+// console.log(a, b, c);
 
-// Working real reustarant data
+// // Working real reustarant data
 
-let [main, , secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, , secondary] = restaurant.categories;
+// console.log(main, secondary);
 
-// Interchang reustarant data
+// // Interchang reustarant data
 
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
 
-const nested = [1, 2, [3, 4], 5];
+// const nested = [1, 2, [3, 4], 5];
 
-// const [i, , j] = nested;
-// console.log(i, j);
+// // const [i, , j] = nested;
+// // console.log(i, j);
 
-// Distructure nested
+// // Distructure nested
 
-const [i, , [j, k]] = nested;
-console.log(j, k);
+// const [i, , [j, k]] = nested;
+// console.log(j, k);
 
-// Default values
+// // Default values
 
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
+
+// Destructure objects
+const { name, openingHours, categories } = restaurant;
+// Destructure using name
+
+const {
+  name: reustarantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+console.log(reustarantName, hours, tags);
+
+// Prevent objects undefine by adding default values
+
+const { menu = [], starterMenu: starter = [] } = restaurant;
+console.log(menu, starter);
+
+// Mutate objects variable
+
+let a = 111;
+let b = 123;
+
+const obj = { a: 20, b: 30, c: 40 };
+
+// Mutate object in actions
+
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested objects
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+restaurant.orderDelivery({
+  time: '22:10',
+  address: 'Arusha Majengo',
+  mainIndex: 2,
+  starterIndex: 4,
+});
