@@ -47,6 +47,11 @@ const restaurant = {
   orderDelivery: function (time, starterIndex, mainIndex, address) {
     console.log(`Your order receiverd ${time}, location ${address}, `);
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with following ingridents ${ing1}, ${ing2} and ${ing3},`
+    );
+  },
 };
 
 // Normal accessing array
@@ -128,3 +133,68 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 4,
 });
+
+// Working with spread operator
+
+const arr = [7, 8, 9];
+
+// Before speard operator
+
+const arrBad = [1, 2, arr[0], arr[1], arr[2]];
+console.log(arrBad);
+
+// Solved problem usign spread operator
+
+const newArray = [11, 12, ...arr];
+console.log(newArray);
+
+// Using spread operator to get individual value;
+console.log(...newArray);
+
+// Working with restaurant data
+
+const newMenu = [...restaurant.mainMenu, 'Capachino', 'Mojitto'];
+console.log(newMenu);
+
+// Coping of an array
+
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join array
+
+const fullRestaurantMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(fullRestaurantMenu);
+
+// Iterable:Arrays, strings, map and sets  but not objects
+
+const str = 'Jonas';
+const letters = [...str, '', '.S'];
+console.log(...str);
+console.log(letters);
+
+// // Real example of spread operator with functions
+// const ingridentsSample = [
+//   prompt('Let `s make paster ingredient 1?'),
+//   prompt('Let `s make paster ingredient 2?'),
+//   prompt('Let `s make paster ingredient 3?'),
+// ];
+// console.log(ingridentsSample);
+
+// // Without spread operators
+// restaurant.orderPasta(
+//   ingridentsSample[0],
+//   ingridentsSample[1],
+//   ingridentsSample[2]
+// // );
+
+// // With using of spread operators
+// restaurant.orderPasta(...ingridentsSample);
+
+// Objects
+
+const newRestaurant = { found: 2025, ...restaurant, founder: 'Jafary Mdegela' };
+console.log(newRestaurant);
+
+const copyRestaurant = { ...restaurant };
+copyRestaurant.name = 'Samaki samaki kinondoni';
+console.log(copyRestaurant);
