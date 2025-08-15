@@ -91,86 +91,86 @@ const restaurant = {
 // const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r);
 
-// Destructure objects
-const { name, openingHours, categories } = restaurant;
-// Destructure using name
+// // Destructure objects
+// const { name, openingHours, categories } = restaurant;
+// // Destructure using name
 
-const {
-  name: reustarantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+// const {
+//   name: reustarantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
 
-console.log(reustarantName, hours, tags);
+// console.log(reustarantName, hours, tags);
 
-// Prevent objects undefine by adding default values
+// // Prevent objects undefine by adding default values
 
-const { menu = [], starterMenu: starter = [] } = restaurant;
-console.log(menu, starter);
+// const { menu = [], starterMenu: starter = [] } = restaurant;
+// console.log(menu, starter);
 
-// Mutate objects variable
+// // Mutate objects variable
 
-let a = 111;
-let b = 123;
+// let a = 111;
+// let b = 123;
 
-const obj = { a: 20, b: 30, c: 40 };
+// const obj = { a: 20, b: 30, c: 40 };
 
-// Mutate object in actions
+// // Mutate object in actions
 
-({ a, b } = obj);
-console.log(a, b);
+// ({ a, b } = obj);
+// console.log(a, b);
 
-// Nested objects
+// // Nested objects
 
-const {
-  fri: { open, close },
-} = openingHours;
-console.log(open, close);
+// const {
+//   fri: { open, close },
+// } = openingHours;
+// console.log(open, close);
 
-restaurant.orderDelivery({
-  time: '22:10',
-  address: 'Arusha Majengo',
-  mainIndex: 2,
-  starterIndex: 4,
-});
+// restaurant.orderDelivery({
+//   time: '22:10',
+//   address: 'Arusha Majengo',
+//   mainIndex: 2,
+//   starterIndex: 4,
+// });
 
-// Working with spread operator
+// // Working with spread operator
 
-const arr = [7, 8, 9];
+// const arr = [7, 8, 9];
 
-// Before speard operator
+// // Before speard operator
 
-const arrBad = [1, 2, arr[0], arr[1], arr[2]];
-console.log(arrBad);
+// const arrBad = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(arrBad);
 
-// Solved problem usign spread operator
+// // Solved problem usign spread operator
 
-const newArray = [11, 12, ...arr];
-console.log(newArray);
+// const newArray = [11, 12, ...arr];
+// console.log(newArray);
 
-// Using spread operator to get individual value;
-console.log(...newArray);
+// // Using spread operator to get individual value;
+// console.log(...newArray);
 
-// Working with restaurant data
+// // Working with restaurant data
 
-const newMenu = [...restaurant.mainMenu, 'Capachino', 'Mojitto'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Capachino', 'Mojitto'];
+// console.log(newMenu);
 
-// Coping of an array
+// // Coping of an array
 
-const mainMenuCopy = [...restaurant.mainMenu];
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-// Join array
+// // Join array
 
-const fullRestaurantMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(fullRestaurantMenu);
+// const fullRestaurantMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(fullRestaurantMenu);
 
-// Iterable:Arrays, strings, map and sets  but not objects
+// // Iterable:Arrays, strings, map and sets  but not objects
 
-const str = 'Jonas';
-const letters = [...str, '', '.S'];
-console.log(...str);
-console.log(letters);
+// const str = 'Jonas';
+// const letters = [...str, '', '.S'];
+// console.log(...str);
+// console.log(letters);
 
 // // Real example of spread operator with functions
 // const ingridentsSample = [
@@ -192,9 +192,62 @@ console.log(letters);
 
 // Objects
 
-const newRestaurant = { found: 2025, ...restaurant, founder: 'Jafary Mdegela' };
-console.log(newRestaurant);
+// const newRestaurant = { found: 2025, ...restaurant, founder: 'Jafary Mdegela' };
+// console.log(newRestaurant);
 
-const copyRestaurant = { ...restaurant };
-copyRestaurant.name = 'Samaki samaki kinondoni';
-console.log(copyRestaurant);
+// const copyRestaurant = { ...restaurant };
+// copyRestaurant.name = 'Samaki samaki kinondoni';
+// console.log(copyRestaurant);
+
+// const newRestaurant = { found: 2025, ...restaurant, founder: 'Jafary Mdegela' };
+// console.log(newRestaurant);
+
+// const copyRestaurant = { ...restaurant };
+// copyRestaurant.name = 'Samaki samaki kinondoni';
+// console.log(copyRestaurant);
+
+//  Short circuit
+
+// Can be any data type , return any data type , short-circuit
+// Return all true value and neglect other value
+
+console.log('----- OR ---------');
+
+console.log(3 || 'Jonas');
+console.log(0 || 'Jafary-Shortcircuit');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello ' || 23 || null);
+
+// In reustarant case study without short-circuit
+restaurant.numGuests = 20;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+// Using short circuit techniques
+restaurant.numSpecialGuest = '';
+const guest2 = restaurant.numSpecialGuest || 50;
+console.log(guest2);
+
+console.log('----- AND ---------');
+
+// Problem come because  0 which is false value
+// return first to false
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+consonle.log('Hello' && 23 && null && 'jonas');
+
+// Practicle implecations part
+
+if (orderPizza) {
+  restaurant.orderPizza('mashroom', 'chocolate', 'chocolate2');
+}
+
+// Using checking if certain value is existing using &&
+
+restaurant.orderDelivery &&
+  restaurant.orderPizza('mashroom', 'chocolate', 'chocolate3');
+
+// Pratical use OR -- set default values
+// Pratical use AND -- set to excute code on second operants
