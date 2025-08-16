@@ -211,43 +211,54 @@ const restaurant = {
 // Can be any data type , return any data type , short-circuit
 // Return all true value and neglect other value
 
-console.log('----- OR ---------');
+// console.log('----- OR ---------');
 
-console.log(3 || 'Jonas');
-console.log(0 || 'Jafary-Shortcircuit');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'Hello ' || 23 || null);
+// // console.log(3 || 'Jonas');
+// // console.log(0 || 'Jafary-Shortcircuit');
+// // console.log('' || 'Jonas');
+// // console.log(true || 0);
+// // console.log(undefined || null);
+// // console.log(undefined || 0 || '' || 'Hello ' || 23 || null);
 
 // In reustarant case study without short-circuit
-restaurant.numGuests = 20;
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
+// restaurant.numGuests = 20;
+// const guest = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest);
 
 // Using short circuit techniques
-restaurant.numSpecialGuest = '';
-const guest2 = restaurant.numSpecialGuest || 50;
-console.log(guest2);
+// restaurant.numSpecialGuest = 0;
+// const guest = restaurant.numSpecialGuest || 50;
+// console.log(guest);
 
-console.log('----- AND ---------');
+// console.log('----- AND ---------');
 
-// Problem come because  0 which is false value
-// return first to false
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
-consonle.log('Hello' && 23 && null && 'jonas');
+// // Problem come because  0 which is false value
+// // return first to false
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+// consonle.log('Hello' && 23 && null && 'jonas');
 
-// Practicle implecations part
+// // Practicle implecations part
 
-if (orderPizza) {
-  restaurant.orderPizza('mashroom', 'chocolate', 'chocolate2');
-}
+// if (orderPizza) {
+//   restaurant.orderPizza('mashroom', 'chocolate', 'chocolate2');
+// }
 
-// Using checking if certain value is existing using &&
+// // Using checking if certain value is existing using &&
 
-restaurant.orderDelivery &&
-  restaurant.orderPizza('mashroom', 'chocolate', 'chocolate3');
+// restaurant.orderDelivery &&
+//   restaurant.orderPizza('mashroom', 'chocolate', 'chocolate3');
 
 // Pratical use OR -- set default values
 // Pratical use AND -- set to excute code on second operants
+
+console.log('----- NULLISH COLLISION ---------');
+
+restaurant.numSpecialGuest = 0;
+const guest = restaurant.numSpecialGuest || 50;
+console.log(guest);
+
+// Solving 0 false problem
+
+const guestCorrect = restaurant.numSpecialGuest ?? 10;
+console.log(guestCorrect);
